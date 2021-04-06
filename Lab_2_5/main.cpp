@@ -1,0 +1,65 @@
+﻿#include <iostream>
+#include "bignum.h"
+
+using namespace std;
+
+int main()
+{
+	// Конструктор по умолчанию
+	BigInt bn1;
+	cout << bn1 << "\n\n";
+	
+	// Конструктор по числу
+	BigInt bn2(98765);
+	cout << bn2 << '\n';
+	BigInt bn3(-12345);
+	cout << bn3 << "\n\n";
+
+	// Конструктор по строке
+	BigInt bn4("220304");
+	cout << bn4 << '\n';
+	BigInt bn5("-123754234536");
+	cout << bn5 << "\n\n";
+
+	// Конструктор копирования
+	BigInt bn6(bn2);
+	cout << bn6 << '\n';
+	BigInt bn7(bn3);
+	cout << bn7 << "\n\n";
+
+	// Доступ к длине и знаку
+	cout << bn4.length() << '\n';
+	cout << bn4.mark() << '\n';
+	cout << bn5.length() << '\n';
+	cout << bn5.mark() << "\n\n";
+
+	// Индексирование
+	cout << bn4[1] << bn4[2] << '\n';
+	cout << bn4 << '\n';
+	bn4[1] = 5;
+	cout << bn4 << '\n';
+	const BigInt bn8(bn4);
+	cout << bn8[1] << bn8[2] << "\n\n";
+	
+	// Операция ввода
+	//BigInt bn9;
+	//cin >> bn9;
+	//cout << bn9 << "\n\n";
+
+	// Оператор присваивания
+	BigInt bn10 = bn8;
+	cout << bn10 << "\n\n";
+
+	// Операторы сравнения
+	cout << bn10 << " == " << bn8 << " ?  -  " << (bn10 == bn8) << '\n';
+	cout << bn1 << " == " << bn2 << " ?  -  " << (bn1 == bn2) << '\n';
+	cout << bn10 << " != " << bn8 << " ?  -  " << (bn10 != bn8) << '\n';
+	cout << bn1 << " != " << bn2 << " ?  -  " << (bn1 != bn2) << "\n\n";
+
+	//
+	int res = static_cast<int>(bn2);
+	cout << res << '\n';
+	res = static_cast<int>(bn3);
+	cout << res << '\n';
+	return EXIT_SUCCESS;
+}
