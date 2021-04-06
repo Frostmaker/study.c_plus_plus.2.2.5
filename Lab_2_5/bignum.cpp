@@ -6,7 +6,7 @@ BigInt::BigInt(int a)
 	a = abs(a);
 	int l = 1;
 	int t = a;
-	while (t > 10) { l++; t /= 10; }
+	while (t >= 10) { l++; t /= 10; }
 	cifr = new Array(l,a); // создаем массив нужного размера
 	for (int i = cifr->length() - 1; i >= 0; --i) { //cifr->length(), потому что cifr - указатель
 		(*cifr)[i] = a % 10; //(*cifr)[i], потому что cifr - указатель
@@ -35,7 +35,7 @@ BigInt::BigInt(std::string s)
 BigInt::BigInt(const BigInt& other)
 {
 	sign = other.sign;
-	cifr = new Array((*other.cifr));  // TODO:
+	cifr = new Array(*(other.cifr));  // TODO:
 }
 
 BigInt::operator int() const
@@ -65,8 +65,8 @@ BigInt::operator std::string() const
 BigInt& BigInt::operator=(const BigInt& other)
 {
 	if (this != &other) {
-		this->sign = other.sign;
-		this->cifr = other.cifr;
+		sign = other.sign;
+		cifr = new Array(*(other.cifr));
 	}
 
 	return *this;
@@ -111,14 +111,84 @@ bool BigInt::operator<=(const BigInt& other)
 	return !(*this > other);
 }
 
+BigInt BigInt::operator+(const BigInt& other)
+{
+	int temp(static_cast<int>(*this) + static_cast<int>(other));
+	BigInt res(temp);
+	return res;
+}
+
+BigInt BigInt::operator+=(const BigInt& other)
+{
+	(*this) = ((*this) + other);
+	return *this;
+}
+
+BigInt& BigInt::operator-()
+{
+	sign = !sign;
+	return *this;
+}
+
+BigInt BigInt::operator-(const BigInt& other)
+{
+	int temp(static_cast<int>(*this) - static_cast<int>(other));
+	BigInt res(temp);
+	return res;
+}
+
+BigInt BigInt::operator-=(const BigInt& other)
+{
+	(*this) = ((*this) - other);
+	return *this;
+}
+
+BigInt BigInt::operator*(const BigInt& other)
+{
+	int temp(static_cast<int>(*this) * static_cast<int>(other));
+	BigInt res(temp);
+	return res;
+}
+
+BigInt BigInt::operator*=(const BigInt& other)
+{
+	(*this) = ((*this) * other);
+	return *this;
+}
+
+BigInt BigInt::operator/(const BigInt& other)
+{
+	int temp(static_cast<int>(*this) / static_cast<int>(other));
+	BigInt res(temp);
+	return res;
+}
+
+BigInt BigInt::operator/=(const BigInt& other)
+{
+	(*this) = ((*this) / other);
+	return *this;
+}
+
+BigInt BigInt::operator%(const BigInt& other)
+{
+	int temp(static_cast<int>(*this) % static_cast<int>(other));
+	BigInt res(temp);
+	return res;
+}
+
+BigInt BigInt::operator%=(const BigInt& other)
+{
+	(*this) = ((*this) % other);
+	return *this;
+}
 
 std::ostream& operator<<(std::ostream& out, const BigInt& bignum)
 {
 	if (bignum.mark() == '-')
 		out << '-';
-	Array* temp(bignum.cifr);
+
 	for (int i = 0; i < bignum.length(); ++i) {
-		out << (*temp)[i];
+		out << bignum[i];
 	}
 	
 	return out;

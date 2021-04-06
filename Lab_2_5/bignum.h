@@ -31,6 +31,19 @@ public:
 	bool operator>= (const BigInt& other);
 	bool operator< (const BigInt& other);
 	bool operator<= (const BigInt& other);
+	
+
+	BigInt operator+ (const BigInt& other);
+	BigInt operator+= (const BigInt & other);
+	BigInt& operator- ();
+	BigInt operator- (const BigInt& other);
+	BigInt operator-= (const BigInt& other);
+	BigInt operator* (const BigInt& other);
+	BigInt operator*= (const BigInt& other);
+	BigInt operator/ (const BigInt& other);
+	BigInt operator/= (const BigInt& other);
+	BigInt operator% (const BigInt& other);
+	BigInt operator%= (const BigInt& other);
 	friend std::ostream& operator<< (std::ostream& out, const BigInt& bignum);
 	friend std::istream& operator>> (std::istream& in, BigInt& bignum);
 };

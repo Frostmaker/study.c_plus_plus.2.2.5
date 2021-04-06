@@ -79,9 +79,24 @@ int main()
 	res = static_cast<int>(bn3);
 	cout << "BigInt -> int: " << res << "\n\n";
 
+
 	string s = static_cast<string>(bn2);
 	cout << "BigInt -> string: " << s << '\n';
 	s = static_cast<string>(bn3);
 	cout << "BigInt -> string: " << s << "\n\n";
+
+	// Арифметика
+	BigInt bn12(100);
+	BigInt bn13(-25);
+	BigInt bn14;
+	bn14 = (bn12 + bn13);
+	cout << bn14 << '\n';
+	bn14 += bn13;
+	cout << bn14 << '\n';
+	cout << (-bn14) << '\n';
+	BigInt bn15(bn12 - bn13);
+	cout << bn15 << '\n';
+	bn15 -= bn14;
+	cout << bn15 << '\n';
 	return EXIT_SUCCESS;
 }
