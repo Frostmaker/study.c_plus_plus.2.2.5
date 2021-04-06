@@ -89,14 +89,41 @@ int main()
 	BigInt bn12(100);
 	BigInt bn13(-25);
 	BigInt bn14;
+
 	bn14 = (bn12 + bn13);
-	cout << bn14 << '\n';
+	cout << bn12 << " + " << bn13 << " = " << bn14 << '\n';
+	cout << bn14 << " + " << bn13 << " = ";
 	bn14 += bn13;
-	cout << bn14 << '\n';
-	cout << (-bn14) << '\n';
+	cout << bn14 << "\n\n";
+	cout << "(-)" << bn14 << " = ";
+	cout << (-bn14) << "\n\n";
+
 	BigInt bn15(bn12 - bn13);
-	cout << bn15 << '\n';
+	cout << bn12 << " - " << bn13 << " = " << bn15 << '\n';
+	cout << bn15 << " - " << bn14 << " = ";
 	bn15 -= bn14;
 	cout << bn15 << '\n';
+
+	BigInt bn16("3");
+	cout << bn15 << " * " << bn16 << " = ";
+	bn15 = bn15 * bn16;
+	cout << bn15 << '\n';
+	cout << bn15 << " * " << bn16 << " = ";
+	bn15 *= bn16;
+	cout << bn15 << "\n\n";
+
+	cout << bn15 << " / " << bn16 << " = ";
+	bn15 = bn15 / bn16;
+	cout << bn15 << '\n';
+	cout << bn15 << " / " << bn16 << " = ";
+	bn15 /= bn16;
+	cout << bn15 << "\n\n";
+
+	cout << bn15 << " % " << bn16 << " = ";
+	bn15 %= bn16;
+	cout << bn15 << '\n';
+	cout << bn15 << " % " << bn16 << " = ";
+	bn15 = bn15 % bn16;
+	cout << bn15 << "\n\n";
 	return EXIT_SUCCESS;
 }
