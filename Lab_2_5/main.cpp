@@ -56,10 +56,27 @@ int main()
 	cout << bn10 << " != " << bn8 << " ?  -  " << (bn10 != bn8) << '\n';
 	cout << bn1 << " != " << bn2 << " ?  -  " << (bn1 != bn2) << "\n\n";
 
-	//
+	cout << bn10 << " > " << bn8 << " ?  -  " << (bn10 > bn8) << '\n';
+	cout << bn10 << " > " << bn5 << " ?  -  " << (bn10 > bn5) << '\n';
+	cout << bn5 << " > " << bn10 << " ?  -  " << (bn5 > bn10) << "\n\n";
+
+	cout << bn10 << " < " << bn8 << " ?  -  " << (bn10 < bn8) << '\n';
+	cout << bn10 << " < " << bn5 << " ?  -  " << (bn10 < bn5) << '\n';
+	cout << bn5 << " < " << bn10 << " ?  -  " << (bn5 < bn10) << "\n\n";
+	
+	cout << bn10 << " >= " << bn8 << " ?  -  " << (bn10 >= bn8) << '\n';
+	cout << bn10 << " >= " << bn5 << " ?  -  " << (bn10 >= bn5) << '\n';
+	cout << bn5 << " >= " << bn10 << " ?  -  " << (bn5 >= bn10) << "\n\n";
+
+	cout << bn10 << " <= " << bn8 << " ?  -  " << (bn10 <= bn8) << '\n';
+	cout << bn10 << " <= " << bn5 << " ?  -  " << (bn10 <= bn5) << '\n';
+	cout << bn5 << " <= " << bn10 << " ?  -  " << (bn5 <= bn10) << "\n\n";
+
+
+	// Приведение к типу int
 	int res = static_cast<int>(bn2);
-	cout << res << '\n';
+	cout << "BigInt -> int" << res << '\n';
 	res = static_cast<int>(bn3);
-	cout << res << '\n';
+	cout << "BigInt -> int" << res << "\n\n";
 	return EXIT_SUCCESS;
 }
