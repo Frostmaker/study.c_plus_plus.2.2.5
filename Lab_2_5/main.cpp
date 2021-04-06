@@ -75,8 +75,13 @@ int main()
 
 	// Приведение к типу int
 	int res = static_cast<int>(bn2);
-	cout << "BigInt -> int" << res << '\n';
+	cout << "BigInt -> int: " << res << '\n';
 	res = static_cast<int>(bn3);
-	cout << "BigInt -> int" << res << "\n\n";
+	cout << "BigInt -> int: " << res << "\n\n";
+
+	string s = static_cast<string>(bn2);
+	cout << "BigInt -> string: " << s << '\n';
+	s = static_cast<string>(bn3);
+	cout << "BigInt -> string: " << s << "\n\n";
 	return EXIT_SUCCESS;
 }

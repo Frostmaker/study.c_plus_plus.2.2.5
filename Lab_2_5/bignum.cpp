@@ -50,6 +50,18 @@ BigInt::operator int() const
 	return (this->sign) ? num : -num;
 }
 
+BigInt::operator std::string() const
+{
+	std::string s;
+
+	s = (this->sign) ? "" : "-";
+	for (int i = 0; i < this->length(); ++i) {
+		s += std::to_string((*this)[i]);
+	}
+
+	return s;
+}
+
 BigInt& BigInt::operator=(const BigInt& other)
 {
 	if (this != &other) {

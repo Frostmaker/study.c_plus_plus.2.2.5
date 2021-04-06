@@ -21,6 +21,7 @@ public:
 	}
 
 	operator int() const;
+	operator std::string() const;
 	int& operator[] (int i) { return (*cifr)[i]; };
 	int operator[] (int i) const { return (*cifr)[i]; };
 	BigInt& operator= (const BigInt& other);
