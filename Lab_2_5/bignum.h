@@ -20,6 +20,9 @@ public:
 		delete cifr;
 	}
 
+	int gcd(const BigInt& other) const;
+	bool is_prime() const;
+
 	operator int() const;
 	operator std::string() const;
 	int& operator[] (int i) { return (*cifr)[i]; };
@@ -46,4 +49,5 @@ public:
 	BigInt operator%= (const BigInt& other);
 	friend std::ostream& operator<< (std::ostream& out, const BigInt& bignum);
 	friend std::istream& operator>> (std::istream& in, BigInt& bignum);
+	friend int gcd(const BigInt& first, const BigInt& second);
 };

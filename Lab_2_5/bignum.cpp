@@ -38,6 +38,28 @@ BigInt::BigInt(const BigInt& other)
 	cifr = new Array(*(other.cifr));  // TODO:
 }
 
+int BigInt::gcd(const BigInt& other) const
+{
+	int l(static_cast<int>(*this));
+	int r(static_cast<int>(other));
+	while (l != 0 && r != 0) {
+		if (l > r)
+			l = l % r;
+		else
+			r = r % l;
+	}
+	return l + r;
+}
+
+bool BigInt::is_prime() const
+{
+	int num = static_cast<int>(*this);
+	int d(2);
+	while (d * d <= num && num % d != 0)
+		++d;
+	return d * d > num;
+}
+
 BigInt::operator int() const
 {
 	int num(0);
@@ -213,4 +235,17 @@ std::istream& operator>>(std::istream& in, BigInt& bignum)
 		}
 	}
 	return in;
+}
+
+int gcd(const BigInt& first, const BigInt& second)
+{
+	int l(static_cast<int>(first));
+	int r(static_cast<int>(second));
+	while (l != 0 && r != 0) {
+		if (l > r)
+			l = l % r;
+		else
+			r = r % l;
+	}
+	return l + r;
 }

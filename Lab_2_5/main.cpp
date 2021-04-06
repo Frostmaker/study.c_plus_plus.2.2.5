@@ -125,5 +125,26 @@ int main()
 	cout << bn15 << " % " << bn16 << " = ";
 	bn15 = bn15 % bn16;
 	cout << bn15 << "\n\n";
+
+	// Простота
+	BigInt bn19("19");
+	BigInt bn18("18");
+	cout << bn18 << " is prime? - " << bn18.is_prime() << '\n';
+	cout << bn19 << " is prime? - " << bn19.is_prime() << "\n\n";
+
+	// НОД
+	BigInt bn17(10080);
+	BigInt bn20("2646");
+	cout << "GCD of " << bn17 << " and " << bn20 << " is " << gcd(bn17, bn20) << "\n\n";
+
+	// 100!
+	BigInt answ(1);
+
+	for (int i(2); i < 100; ++i) {
+		BigInt temp(i);
+		answ *= temp;
+	}
+
+	cout << "100! = " << answ << "\n\n";
 	return EXIT_SUCCESS;
 }
